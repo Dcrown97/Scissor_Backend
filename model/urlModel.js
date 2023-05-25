@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose')
 
 const UrlSchema = new mongoose.Schema({
     urlId: {
@@ -12,6 +12,9 @@ const UrlSchema = new mongoose.Schema({
     shortUrl: {
         type: String,
         required: true,
+    },
+    customUrl: {
+        type: String,
     },
     clicks: {
         type: Number,
@@ -29,4 +32,4 @@ const UrlSchema = new mongoose.Schema({
     },
 });
 
-export default mongoose.model('Url', UrlSchema);
+module.exports  = mongoose.model('Url', UrlSchema);
