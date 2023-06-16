@@ -51,11 +51,11 @@ exports.login = async (req, res) => {
         }
         //Store the user in the payload of the JWT.
         // You then sign the token with a secrete_key (JWT_SECRET), and send back the token to the user.
-        const tokenExpires = '1mins'
+        const tokenExpires = '1hr'
         const token = jwt.sign({ user }, process.env.JWT_SECRET || 'secret_token', { expiresIn: tokenExpires });
         user.password = undefined;
 
-        return res.status(200).send({ user, token, message: 'Logged in Successfully', status: 200 });
+        return res.status(200).send({ user, token, message: 'Logged in Successfully', tokenExpires, status: 200 });
     } catch (err) {
         console.log(err, 'error')
         return done(err);

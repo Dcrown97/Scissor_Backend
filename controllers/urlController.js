@@ -1,5 +1,6 @@
 require('dotenv').config();
 const Url = require('../model/urlModel');
+const User = require('../model/userModel');
 const Visit = require('../model/visitModel');
 const validUrl = require('valid-url')
 const shortid = require('shortid')
@@ -189,7 +190,6 @@ exports.analytics = async (req, res) => {
 exports.visit = async (req, res) => {
     try {
         const id = req.params.id
-        console.log(id)
         const getUrlVisit = await Visit.find({ urlVisitedId: id })
         const getUrl = await Url.findOne({ _id: id })
         if (!getUrlVisit ) {
@@ -199,6 +199,29 @@ exports.visit = async (req, res) => {
         return res.status(200).json({
             status: 200,
             data: getUrlVisit, urlDetail: getUrl,
+            message: "Success"
+        })
+
+    } catch (err) {
+        // console.log(err);
+        res.status(500).json({
+            message: 'Server Error',
+            error: err
+        });
+    }
+};
+
+exports.users = async (req, res) => {
+    try {
+        const id = req.params.id
+        const getUser = await User.findOne({ _id: id })
+        if (!getUser ) {
+            return res.status(404).send('User Visit not found');
+        }
+        // return response
+        return res.status(200).json({
+            status: 200,
+            data: getUser,
             message: "Success"
         })
 

@@ -11,6 +11,7 @@ urlRouter.post('/api/custom', authorizationToken, userToken, urlController.custo
 urlRouter.get('/:urlId', limiter, handleRateLimitExceeded, urlController.redirect);
 urlRouter.get('/api/analytics', authorizationToken, userToken, urlController.analytics);
 urlRouter.get('/api/visit/:id', authorizationToken, userToken, urlController.visit);
+urlRouter.get('/api/user/:id', authorizationToken, userToken, urlController.users);
 
 // blogRouter.get('/all_blogs', blogController.getPublishedBlogs);
 // blogRouter.get('/single_blog/:id', blogController.getSinglePublishedBlog);
