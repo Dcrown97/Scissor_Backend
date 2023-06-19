@@ -55,7 +55,7 @@ exports.login = async (req, res) => {
         const token = jwt.sign({ user }, process.env.JWT_SECRET || 'secret_token', { expiresIn: tokenExpires });
         user.password = undefined;
 
-        return res.status(200).send({ user, token, message: 'Logged in Successfully', tokenExpires, status: 200 });
+        return res.status(200).send({ user, token, message: 'Logged in Successfully', status: 200 });
     } catch (err) {
         console.log(err, 'error')
         return done(err);
