@@ -13,12 +13,4 @@ urlRouter.get('/api/analytics', authorizationToken, userToken, urlController.ana
 urlRouter.get('/api/visit/:id', authorizationToken, userToken, urlController.visit);
 urlRouter.get('/api/user/:id', authorizationToken, userToken, urlController.users);
 
-// blogRouter.get('/all_blogs', blogController.getPublishedBlogs);
-// blogRouter.get('/single_blog/:id', blogController.getSinglePublishedBlog);
-// blogRouter.get('/user_blog', authorizationToken, userToken, blogController.getBlogByAuthor);
-// blogRouter.put('/edit_blog/:id', authorizationToken, userToken, blogController.editBlog);
-// blogRouter.delete('/delete_blog/:id', authorizationToken, userToken, blogController.deleteBlog);
-
-
-
 module.exports = urlRouter;
