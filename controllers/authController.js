@@ -27,7 +27,7 @@ exports.signup = async (req, res) => {
             status: 200
         })
     } catch (err) {
-        return res.status(400).send(err.message)
+        return res.status(400).send({message: 'User validation failed'})
     }
 }
 
@@ -57,7 +57,7 @@ exports.login = async (req, res) => {
 
         return res.status(200).send({ user, token, message: 'Logged in Successfully', status: 200 });
     } catch (err) {
-        console.log(err, 'error')
+        // console.log(err, 'error')
         return done(err);
     }
 }

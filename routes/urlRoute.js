@@ -2,7 +2,7 @@ const express = require('express');
 const urlController = require('../controllers/urlController');
 const userToken = require('../middleware/userToken')
 const authorizationToken = require('../middleware/authorizationToken')
-const { limiter, handleRateLimitExceeded } = require('../middleware/rateLimit');
+const { limiter } = require('../middleware/rateLimit');
 
 const urlRouter = express.Router();
 
